@@ -1,7 +1,7 @@
 const Profile = () => {
     return (
         <div>
-            
+            profile page comming ...
         </div>
     );
 };

@@ -1,20 +1,32 @@
 import { useForm } from "react-hook-form";
 import Field from "../common/Field";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 const LoginForm = () => {
+    const { setAuth } = useAuth()
+    const navigate = useNavigate()
+     
     const {
         register,
         handleSubmit ,
         formState: { errors }
     } = useForm()
 
-    const handleClick =(data)=>{
+
+
+    const handleFormData =(data)=>{
+        
+        const user ={...data}
+        setAuth({user})
         console.log(data)
+        navigate("/")
+
 
     }
 
     return (
-        <form onSubmit={ handleSubmit(handleClick)} className="border-b border-[#3F3F3F] pb-10 lg:pb-[60px]">
+        <form onSubmit={ handleSubmit(handleFormData)} className="border-b border-[#3F3F3F] pb-10 lg:pb-[60px]">
             <Field label="Email" error={errors.email}>
                 <input 
                   {...register("email", { required: "Email id is required"})} 
