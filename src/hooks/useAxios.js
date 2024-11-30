@@ -40,7 +40,9 @@ const responseIntercept = api.interceptors.response.use(
          const response = await axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/auth/refresh-token` ,{refreshToken})
 
          const {token} = response.data
+
          console.log("from hooks" ,token)
+         
          setAuth({...auth, authToken: token})
           orginalRequest.headers.Authorization = `Bearer ${token}`
           return axios.post(orginalRequest)

@@ -1,7 +1,7 @@
 const NotFound = () => {
     return (
         <div>
-            hhhhhhh
+            <i  className="text-xl text-red-500">Not found this page</i>
         </div>
     );
 };
