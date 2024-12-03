@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+
 import {  useAxios} from "../../hooks/useAxios";
 import { initialState, postReducer } from "../../reducers/PostReducer";
 import { useEffect, useReducer } from "react";
 import { actions } from "../../actions";
 import PostList from "../../components/posts/PostList";
+
 
 const Home = () => {
    const {api} = useAxios()
@@ -34,6 +35,7 @@ const Home = () => {
 
     fetchPost();
 }, []);
+
 
 if (state?.loading) {
     return <div> We are working...</div>;
