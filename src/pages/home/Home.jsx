@@ -1,14 +1,14 @@
 
 import {  useAxios} from "../../hooks/useAxios";
-import { initialState, postReducer } from "../../reducers/PostReducer";
-import { useEffect, useReducer } from "react";
+import { useEffect } from "react";
 import { actions } from "../../actions";
 import PostList from "../../components/posts/PostList";
+import { usePost } from "../../hooks/usePost";
 
 
 const Home = () => {
    const {api} = useAxios()
-   const [state , dispatch] = useReducer(postReducer , initialState)
+   const {state , dispatch} = usePost()
 
    useEffect(() => {
     dispatch({ type: actions.post.DATA_FETCHING });
